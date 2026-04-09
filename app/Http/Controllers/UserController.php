@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         return view('users.index', compact('users'));
     }
 
@@ -31,7 +32,13 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        User::create($request->validated());
+        $userData = $request->validated();
+        // Handle avatar upload
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+            $userData['avatar'] = $avatarPath;
+        }
+        User::create($userData);
 
         return redirect()->route('users.index');
     }
@@ -49,18 +56,33 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+        $userData = $request->validated();
+
+        // Handle password properly
+        if (!empty($userData['password'])) {
+            $userData['password'] = bcrypt($userData['password']);
+        } else {
+            unset($userData['password']); 
+        }
+
+        // Handle avatar upload
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+            $userData['avatar'] = $avatarPath;
+        } else {
+            unset($userData['avatar']); // 🚀 keep old avatar in DB
+        }
+
+        $user->update($userData);
 
         return redirect()->route('users.index');
     }

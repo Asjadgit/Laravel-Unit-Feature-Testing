@@ -30,9 +30,10 @@ class UserCrudTest extends TestCase
     public function test_name_is_required()
     {
         $response = $this->post('/users', [
-            'name' => '',
-            'email' => 'test@example.com',
-            'password' => 'password123',
+            'name'      => '',
+            'email'     => 'test@example.com',
+            'password'  => 'password123',
+            'role'      => 'Test',
         ]);
 
         $response->assertSessionHasErrors('name');
@@ -41,9 +42,10 @@ class UserCrudTest extends TestCase
     public function test_email_is_required_and_valid()
     {
         $response = $this->post('/users', [
-            'name' => 'Test User',
-            'email' => 'invalid-email',
-            'password' => 'password123',
+            'name'      => 'Test User',
+            'email'     => 'invalid-email',
+            'password'  => 'password123',
+            'role'      => 'Test',
         ]);
 
         $response->assertSessionHasErrors('email');
@@ -52,9 +54,10 @@ class UserCrudTest extends TestCase
     public function test_password_must_be_at_least_6_characters()
     {
         $response = $this->post('/users', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => '123',
+            'name'      => 'Test User',
+            'email'     => 'test@example.com',
+            'password'  => '123',
+            'role'      => 'Test',
         ]);
 
         $response->assertSessionHasErrors('password');
@@ -63,9 +66,10 @@ class UserCrudTest extends TestCase
     public function test_can_create_user()
     {
         $response = $this->post('/users', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'password123',
+            'name'      => 'Test User',
+            'email'     => 'test@example.com',
+            'password'  => 'password123',
+            'role'      => 'Test',
         ]);
 
         $response->assertStatus(302); // redirect after store
@@ -80,9 +84,10 @@ class UserCrudTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->put("/users/{$user->id}", [
-            'name' => 'Updated Name',
-            'email' => 'updated@example.com',
-            'password' => 'password123',
+            'name'      => 'Updated Name',
+            'email'     => 'updated@example.com',
+            'password'  => 'password123',
+            'role'      => 'Testing',
         ]);
 
         $response->assertStatus(302);
