@@ -76,4 +76,4 @@ jobs:
           DB_DATABASE: testing
           DB_USERNAME: root
           DB_PASSWORD: root
-        run: php artisan test --filter=AuthTest
+        run: php artisan test --filter=UserCrudTest
