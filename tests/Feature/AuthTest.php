@@ -29,4 +29,12 @@ class AuthTest extends TestCase
             'email' => 'test@example.com',
         ]);
     }
+
+    public function test_can_access_dahboard()
+    {
+        $response = $this->get('/dashboard');
+
+        $response->assertStatus(500);
+        $response->assertSessionHasNoErrors();
+    }
 }
