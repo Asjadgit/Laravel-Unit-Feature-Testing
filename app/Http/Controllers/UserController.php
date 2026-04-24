@@ -16,7 +16,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        return view('users.index', compact('users'));
+        // return view('users.index', compact('users'));
+
+        return 'Index View';
     }
 
     /**
@@ -71,7 +73,7 @@ class UserController extends Controller
         if (!empty($userData['password'])) {
             $userData['password'] = bcrypt($userData['password']);
         } else {
-            unset($userData['password']); 
+            unset($userData['password']);
         }
 
         // Handle avatar upload
