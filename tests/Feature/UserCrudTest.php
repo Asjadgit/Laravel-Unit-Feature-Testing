@@ -63,6 +63,18 @@ class UserCrudTest extends TestCase
         $response->assertSessionHasErrors('password');
     }
 
+    public function test_role_is_required()
+    {
+        $response = $this->post('/users', [
+            'name'      => 'Test User',
+            'email'     => 'invalid-email',
+            'password'  => 'password123',
+            'role'      => '',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+    }
+
     public function test_can_create_user()
     {
         $response = $this->post('/users', [
