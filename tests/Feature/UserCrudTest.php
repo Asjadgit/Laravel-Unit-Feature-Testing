@@ -72,7 +72,7 @@ class UserCrudTest extends TestCase
             'role'      => '',
         ]);
 
-        $response->assertSessionHasErrors('email');
+        $response->assertSessionHasErrors('role');
     }
 
     public function test_can_create_user()
