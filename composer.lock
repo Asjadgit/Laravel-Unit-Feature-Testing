@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53b5d56b3b7e3cbac1713e68c8850f6c",
+    "content-hash": "fee8f728dbe526499f617aff24f7520c",
     "packages": [
+        {
+            "name": "asjadgit/laravel-ai-package",
+            "version": "v3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Asjadgit/laravel-ai-package.git",
+                "reference": "7dfdae25a9a9ec48d20e40a6f0cb8d7b5bbdb0cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Asjadgit/laravel-ai-package/zipball/7dfdae25a9a9ec48d20e40a6f0cb8d7b5bbdb0cc",
+                "reference": "7dfdae25a9a9ec48d20e40a6f0cb8d7b5bbdb0cc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": ">=9.0",
+                "illuminate/support": ">=9.0",
+                "php": "^8.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Asjad\\LaravelAI\\AIServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Asjad\\LaravelAI\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel AI integration package",
+            "support": {
+                "source": "https://github.com/Asjadgit/laravel-ai-package/tree/v3.0.1",
+                "issues": "https://github.com/Asjadgit/laravel-ai-package/issues"
+            },
+            "time": "2026-04-21T10:52:33+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.14.8",

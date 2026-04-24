@@ -17,7 +17,7 @@
                 <div class="flex justify-between items-center h-16">
                     {{-- Logo / Brand --}}
                     <div class="flex-shrink-0">
-                        <a href="{{ url('/') }}" class="text-xl font-bold text-gray-800 hover:text-gray-600 transition">
+                        <a href="{{ url('/users') }}" class="text-xl font-bold text-gray-800 hover:text-gray-600 transition">
                             {{ config('app.name', 'Laravel') }}
                         </a>
                     </div>

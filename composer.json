@@ -10,6 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "asjadgit/laravel-ai-package": "^3.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
     },
@@ -84,6 +85,12 @@
             "php-http/discovery": true
         }
     },
+    "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/Asjadgit/laravel-ai-package"
+    }
+    ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }
