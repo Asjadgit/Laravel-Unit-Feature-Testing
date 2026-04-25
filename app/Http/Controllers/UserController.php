@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserCreated;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -38,7 +40,10 @@ class UserController extends Controller
             $avatarPath = $request->file('avatar')->store('avatars', 'public');
             $userData['avatar'] = $avatarPath;
         }
-        User::create($userData);
+
+        $user = User::create($userData);
+
+        Event::dispatch(new UserCreated($user));
 
         return redirect()->route('users.index');
     }
