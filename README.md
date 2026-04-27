@@ -1,37 +1,63 @@
-# 📘 Laravel Unit & Feature Testing Playground
+# 🧪 Laravel Testing Playground (Unit & Feature Testing)
 
 <p align="center">
-<a href="https://laravel.com" target="_blank">
-<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-</a>
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="420" alt="Laravel Logo">
+  </a>
 </p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions">
-<img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
-</a>
-<a href="https://packagist.org/packages/laravel/framework">
-<img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Version">
-</a>
-<a href="https://packagist.org/packages/laravel/framework">
-<img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads">
-</a>
-<a href="https://opensource.org/licenses/MIT">
-<img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
-</a>
+  <a href="https://github.com/Asjadgit/laravel-unit-feature-testing/actions">
+    <img src="https://github.com/Asjadgit/laravel-unit-feature-testing/actions/workflows/tests.yml/badge.svg" alt="Tests Status">
+  </a>
+  <img src="https://img.shields.io/badge/PHP-8.2+-blue.svg" alt="PHP Version">
+  <img src="https://img.shields.io/badge/Laravel-10+-red.svg" alt="Laravel Version">
+  <img src="https://img.shields.io/badge/Tests-PHPUnit-green.svg" alt="PHPUnit">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
 </p>
 
 ---
 
-## 🚀 About This Project
+## 📘 Overview
 
-This repository is a **Laravel testing playground** focused on mastering:
+This project is a **hands-on Laravel testing playground** designed to demonstrate how to write **reliable, maintainable, and production-ready tests**.
 
-- 🧪 Unit Testing  
-- 🌐 Feature Testing  
-- 📦 Form Request Validation Testing  
-- 🗄️ Database Testing  
-- 🔁 CRUD Testing (Create, Read, Update, Delete)
+It focuses on real-world testing scenarios including **CRUD operations, validation, and database assertions**, backed by an automated **CI pipeline**.
+
+---
+
+## 🚀 Key Features
+
+- 🧪 **Unit Testing** — Isolated logic validation  
+- 🌐 **Feature Testing** — End-to-end HTTP testing  
+- 🗄️ **Database Testing** — Assertions with fresh state  
+- 📦 **Form Request Validation Testing**  
+- 🔁 **Full CRUD Workflow Testing**  
+- ⚙️ **CI/CD Integration (GitHub Actions)**  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Laravel  
+- **Testing:** PHPUnit (Laravel Testing Utilities)  
+- **Database:** SQLite (Testing) / MySQL  
+- **CI/CD:** GitHub Actions  
+- **Version Control:** Git & GitHub  
+
+---
+
+## 📂 Project Structure
+
+```bash
+tests/
+├── Feature/
+│   └── UserCrudTest.php
+├── Unit/
+│   └── ExampleTest.php
+---
+```
+
 
 It demonstrates how to properly test real-world Laravel applications using **PHPUnit / Laravel testing tools**.
 
@@ -108,6 +134,23 @@ php artisan test tests/Feature/UserCrudTest.php
 ```php
 php artisan test --filter=test_can_create_user
 ```
+
+## ⚙️ CI/CD Pipeline
+
+This project uses GitHub Actions for automated Quality Assurance.
+
+- ✔ On every push / pull request:
+- Install dependencies
+- Setup environment
+- Run all tests
+
+#### 🔍 Outcome:
+
+✅ Passing → Code is stable
+❌ Failing → Issues detected before merge
+
+> This ensures code reliability and production safety
+---
 
 
 # 📜 License
